@@ -62,7 +62,7 @@ type MapReduce struct {
 
 	// Map of registered workers that you need to keep up to date
 	Workers map[string]*WorkerInfo
- 	
+
 	// add any additional state here
 	idleChannel chan string
 }
@@ -75,11 +75,11 @@ func InitMapReduce(nmap int, nreduce int,
 	mr.file = file
 	mr.MasterAddress = master
 	mr.alive = true
-	mr.registerChannel = make(chan string)
+	mr.registerChannel = make(chan string, MAX_WORKERS)
 	mr.DoneChannel = make(chan bool)
 
 	// initialize any additional state here
-	mr.idleChannel = make(chan string, MAX_WORKERS)
+	mr.idleChannel = make(chan string, MAX_WORKERS) // must set the max of work set, otherwise ... error
 	mr.Workers = make(map[string]*WorkerInfo)
 	return mr
 }

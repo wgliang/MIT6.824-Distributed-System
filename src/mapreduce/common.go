@@ -4,8 +4,8 @@ import "fmt"
 import "net/rpc"
 
 const (
-	Map    = "Map"
-	Reduce = "Reduce"
+	Map         = "Map"
+	Reduce      = "Reduce"
 	MAX_WORKERS = 50
 )
 

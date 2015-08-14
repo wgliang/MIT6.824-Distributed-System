@@ -30,7 +30,7 @@ func (wk *Worker) DoJob(arg *DoJobArgs, res *DoJobReply) error {
 		DoReduce(arg.JobNumber, arg.File, arg.NumOtherPhase, wk.Reduce)
 	}
 	res.OK = true
-	DPrintf("job: %d done\n",arg.JobNumber)
+	DPrintf("job: %d done\n", arg.JobNumber)
 	return nil
 }
 
